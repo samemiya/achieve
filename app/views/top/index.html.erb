@@ -6,12 +6,13 @@
 <!--        <li><a href="#">ブログ index.html.erbのheader</a></li>-->
 <!--    </ul>-->
 <!--</header>-->
-<p><%= notice %></p>
+<!-- <p><%= notice %></p> -->
 
 <section class="main-header">
     <!--<img src="images-master/achieve.png">-->
     <!--<img src="images/achieve.png">-->
-    <img src="<%=asset_path "achieve.png" %>">
+    <p class="flash"><%= notice %><%= alert %></p>
+    <img src="<%=asset_path "achieve.png"%>">
 </section>
 
 <section class="about">
@@ -61,6 +62,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div id="page-top-btn" class="page-top-btn">
+        <p><a class="move-page-top" id="move-page-top">▲</a></p>
     </div>
 </section>  
 

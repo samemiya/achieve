@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_blog, only: [:edit, :update, :destroy]  
   
   def index
@@ -15,6 +16,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blogs_params)
+    @blog.user_id = current_user.id
     if @blog.save
       # 一覧画面へ遷移して"ブログを作成しました！"とメッセージを表示します。
       redirect_to blogs_path, notice: "ブログを作成しました！"    
@@ -37,6 +39,7 @@ class BlogsController < ApplicationController
     # edit, update, destroyで共通コード
     # set_blog
     @blog = Blog.find(params[:id])
+    @blog.user_id = current_user.id
     
     if @blog.update(blogs_params)
       redirect_to blogs_path, notice: "ブログを更新しました！"
@@ -57,7 +60,7 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blogs_params)
     render :new if @blog.invalid?
   end
-  
+
   private
       def blogs_params
         params.require(:blog).permit(:title, :content)
