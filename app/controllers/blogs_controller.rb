@@ -40,6 +40,7 @@ class BlogsController < ApplicationController
     # set_blog
     @blog = Blog.find(params[:id])
     @blog.user_id = current_user.id
+    @blog.user_name = current_user.name
     
     if @blog.update(blogs_params)
       redirect_to blogs_path, notice: "ブログを更新しました！"
