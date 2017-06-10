@@ -27,6 +27,11 @@ Rails.application.routes.draw do
   
   root 'top#index'
 
+# DIVE11 で追加　メール送信
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
 end
   
   # See how all your routes lay out with "rake routes".
