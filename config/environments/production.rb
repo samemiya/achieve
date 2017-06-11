@@ -77,8 +77,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-# DIVE11で記入
-config.action_mailer.default_url_options = { host: warm-lowlands-91711 }
+# DIVE11/メール送信　で挿入
+config.action_mailer.default_url_options = { host: 'warm-lowlands-91711' }
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings =
 {
