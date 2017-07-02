@@ -40,9 +40,16 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # DIVE13_デバック：エラーページで編集
+  # デバッグ用のgem
+  gem 'pry-rails'
+  gem 'better_errors'
+
 end
 
-# DIVE07 にて追加　Heroku上でのエラーをコンソールに出力させるgem
+# DIVE07_Heroku で編集
+# Heroku上でのエラーをコンソールに出力させるgem
 gem 'rails_12factor', group: :production
 
 gem 'twitter-bootstrap-rails'
@@ -53,9 +60,17 @@ gem 'jquery-turbolinks'
 
 gem 'faker'
 
+# DIVE11_メール送信で編集
+# メールボックスを開かずにブラウザでメール送信内容を確認することができるgem
+# アプリのURLに続けて『/letter_opener』を入力
 group :development do
   gem 'letter_opener_web'
 end
 
-# DIVE12 にて追加　管理画面用のgem
+# DIVE12_管理画面で編集
+# 管理画面用のgem
 gem 'rails_admin'
+
+# DIVE12_管理画面で編集
+# adminカラムがtrueの場合のみ管理画面にアクセスできるgem
+gem 'cancan'

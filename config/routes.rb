@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   # get 'top/index'
-
+  
   # get 'blogs' => 'blogs#index' 
   # get 'top/index'
    
@@ -27,7 +28,9 @@ Rails.application.routes.draw do
   
   root 'top#index'
 
-# DIVE11 で追加　メール送信
+  # DIVE11_メール送信 で編集
+  # 開発環境だとメールを送れない
+  # 発信したかどうかを確認するツールを利用できるようにする
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

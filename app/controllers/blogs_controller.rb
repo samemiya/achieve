@@ -4,6 +4,14 @@ class BlogsController < ApplicationController
   
   def index
     @blogs = Blog.all
+    
+    # DIVE13_デバック：エラーページ　で編集
+    # 処理を途中で止めて、状況を確認する
+    # binding.pry
+    
+    # 同じように途中で止める　違いは何だろう？
+    # raise
+    
   end
   
   def new

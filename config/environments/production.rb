@@ -77,17 +77,17 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-# DIVE11/メール送信　で挿入
-config.action_mailer.default_url_options = { host: 'warm-lowlands-91711' }
-ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.smtp_settings =
-{
- user_name: ENV['SENDGRID_USERNAME'],
- password: ENV['SENDGRID_PASSWORD'],
- domain: "heroku.com",
- address: "smtp.sendgrid.net",
- port: 587,
- authentication: :plain,
- enable_starttls_auto: true
-}
+    # DIVE11_メール送信　で編集
+    config.action_mailer.default_url_options = { host: 'warm-lowlands-91711' }
+    ActionMailer::Base.delivery_method = :smtp
+    ActionMailer::Base.smtp_settings =
+    {
+     user_name: ENV['SENDGRID_USERNAME'],
+     password: ENV['SENDGRID_PASSWORD'],
+     domain: "heroku.com",
+     address: "smtp.sendgrid.net",
+     port: 587,
+     authentication: :plain,
+     enable_starttls_auto: true
+    }
 end
