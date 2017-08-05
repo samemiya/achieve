@@ -35,6 +35,11 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
+# DIVE14_API基礎編２で編集
+# APIの演習
+# 課題でshow,editを追加
+  resources :poems, only: [:index,:show,:edit] #この行を追記する
+
 end
   
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+
+    <h1>詳細情報</h1>
+
+    <P><strong>タイトル：</strong>
+    <%= @poem.title %><br></p>
+    <P><strong>内容：</strong>
+    <%= @poem.content %></P>
+    <br>
+  
+    <%= link_to '一覧へ', poems_path, :class => 'btn btn-default'  %>
+
+  </div>
+</div>

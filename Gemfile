@@ -74,3 +74,9 @@ gem 'rails_admin'
 # DIVE12_管理画面で編集
 # adminカラムがtrueの場合のみ管理画面にアクセスできるgem
 gem 'cancan'
+
+# DIVE14_API基礎編２で編集
+# API用のgem
+gem 'activeresource' #この行を追記する
+
+
