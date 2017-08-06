@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
+  
+  # DIVE14_SNSログイン で編集
+  # OAuth機能を使えるようにする
+  devise_for :users, controllers: {
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
   # get 'top/index'
   
   # get 'blogs' => 'blogs#index' 
