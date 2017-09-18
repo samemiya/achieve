@@ -459,3 +459,9 @@ template {
 [hidden] {
   display: none;
 }
+
+/*# DIVE14_SNSログイン で編集*/
+/*# 画像が大きく表示されないようにする*/
+img{
+  max-width: 10%;
+}

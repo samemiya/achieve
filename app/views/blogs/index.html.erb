@@ -27,6 +27,8 @@
 
     <% @blogs.each do |blog| %>
       <div class="row">
+        <!--dive14_SNSログイン で編集　課題-->
+        <%= profile_img(blog.user) %>
         <h4><strong><%= blog.title %></strong></h4>
         <p><%= blog.content %></p>
         <p style="text-align:right;">

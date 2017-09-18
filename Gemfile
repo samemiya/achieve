@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.20.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -65,6 +65,9 @@ gem 'faker'
 # アプリのURLに続けて『/letter_opener』を入力
 group :development do
   gem 'letter_opener_web'
+  
+  # DIVE14_SNSログインで編集
+  gem 'dotenv-rails'
 end
 
 # DIVE12_管理画面で編集
@@ -79,4 +82,12 @@ gem 'cancan'
 # API用のgem
 gem 'activeresource' #この行を追記する
 
+# DIVE14_SNSログインで編集
+# oauthのgem
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
+#image uploader
+gem 'carrierwave'
+gem 'mini_magick'

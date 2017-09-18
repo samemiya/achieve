@@ -2,11 +2,6 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
-  # DIVE14_SNSログイン で編集
-  # OAuth機能を使えるようにする
-  devise_for :users, controllers: {
-    omniauth_callbacks: "users/omniauth_callbacks"
-  }
   # get 'top/index'
   
   # get 'blogs' => 'blogs#index' 
@@ -40,10 +35,18 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-# DIVE14_API基礎編２で編集
-# APIの演習
-# 課題でshow,editを追加
+  # DIVE14_API基礎編２ で編集
+  # APIの演習
+  # 課題でshow,editを追加
   resources :poems, only: [:index,:show,:edit] #この行を追記する
+  
+  # DIVE14_SNSログイン で編集
+  # 新規登録する際に、継承したregistration_controllerが
+  # 使用されるようにする
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
 
 end
   
