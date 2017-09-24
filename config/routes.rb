@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  # DIVE15_コメント機能 で編集　
+  # rails g コマンドで作成されるが不要なので削除する
+  # get 'comments/create'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   # get 'top/index'
@@ -7,16 +11,24 @@ Rails.application.routes.draw do
   # get 'blogs' => 'blogs#index' 
   # get 'top/index'
    
-  resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
-    collection do
-      post :confirm
-    end
+# DIVE15_コメント機能 で編集　
+# resourcesの書き方を変える為に下記は削除
+#   resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
+#     collection do
+#       post :confirm
+#     end
     
-    # member do
-    #   post :confirm
-    # end
+#     # member do
+#     #   post :confirm
+#     # end
+#   end
+
+# DIVE15_コメント機能 で編集　新たに書き換えたもの
+  resources :blogs do
+    resources :comments
+    post :confirm, on: :collection
   end
-  
+
   # get 'contacts/index'
   # resources :contacts, only: [:index, :new, :create]
 

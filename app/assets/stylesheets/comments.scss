@@ -1,0 +1,23 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// # DIVE15_コメント機能 で編集
+// # 動的にコメントを反映させる編集を行った際のデザイン変更
+ul{
+  padding: 0;
+}
+
+.child li {
+  padding-top: 13px;
+  border-bottom: 1px dotted #ccc;
+  list-style-type: none;
+}
+
+.right {
+text-align: right;
+}
+
+.left {
+text-align: left;
+}

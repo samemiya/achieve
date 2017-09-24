@@ -11,7 +11,12 @@ class User < ActiveRecord::Base
   # carrierwave用の設定
   mount_uploader :avatar, AvatarUploader #deviseの設定配下に追記
   
-  has_many :blogs
+  # DIVE15_コメント機能 で編集　アソシエーションの編集
+  # has_many :blogs
+  # 下記のように書き換える
+  has_many :blogs, dependent: :destroy
+  # CommentモデルのAssociationを設定
+  has_many :comments, dependent: :destroy
 
   # find_for_facebook_oauthメソッドの定義
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

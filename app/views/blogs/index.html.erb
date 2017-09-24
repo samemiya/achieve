@@ -19,22 +19,27 @@
 
 <div class="container">
   <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
-
     <p><%= notice %></p>
-
     <h1>ブログ一覧</h1>
       <%= link_to "ブログを作成する", new_blog_path, class: 'btn btn-default' %>
 
     <% @blogs.each do |blog| %>
       <div class="row">
-        <!--dive14_SNSログイン で編集　課題-->
-        <%= profile_img(blog.user) %>
-        <h4><strong><%= blog.title %></strong></h4>
+        <!--# DIVE15_コメント機能 で編集　-->
+        <!--# ブログのタイトルにlink_toでリンクを設定-->
+        <!--# profile・登録者情報は表示させない-->
+        <%= link_to blog_path(blog) do %>
+          <h4><strong><%= blog.title %></strong></h4>
+        <% end %>
+        <!--dive14_SNSログイン で編集　課題提出-->
+        <!--<%= profile_img(blog.user) %>-->
+        <!--<h4><strong><%= blog.title %></strong></h4>-->
         <p><%= blog.content %></p>
         <p style="text-align:right;">
-          登録者 
-          <!--<%= blog.user_id %> -->
-          <%= blog.user_name %></p>
+        <!--  登録者 -->
+        <!--<%= blog.user_id %> -->
+        <!--<%= blog.user_name %></p>-->
+        
         <%= link_to "編集", edit_blog_path(blog.id), class: 'btn btn-default btn-sm btn-success' %>
         <%= link_to "削除", blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
       </div>
