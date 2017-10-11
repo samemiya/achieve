@@ -1,21 +1,26 @@
-<!--<h1>Blogs#index</h1>-->
-<!--<p>Find me in app/views/blogs/index.html.erb</p>-->
-<!--q-->
+<%#
+<h1>Blogs#index</h1>
+<p>Find me in app/views/blogs/index.html.erb</p>
+q
+%>
 
-<!--Bootstrapを適用する前までのコード　ここから-->
-<!--<p>%= notice %></p>-->
+<%# Bootstrapを適用する前までのコード %>
+<%#
+ここから
+<p>%= notice % ></p>
 
-<!--<h1>ブログ一覧</h1>-->
+<h1>ブログ一覧</h1>
 
-<!--% @blogs.each do |blog| %>-->
-<!--  <p>タイトル:%= blog.title %></p>-->
-<!--  <p>本文:%= blog.content %></p>-->
-<!--  %= link_to "ブログを編集する", edit_blog_path(blog.id) %>-->
-<!--  %= link_to 'ブログを削除する', blog_path(blog.id), method: :delete, data: { confirm: '本当削除していいですか？' } %>-->
-<!--% end %>-->
+<% @blogs.each do |blog| % >
+  <p>タイトル:%= blog.title % ></p>
+  <p>本文:%= blog.content % ></p>
+  <%= link_to "ブログを編集する", edit_blog_path(blog.id) % >
+  <%= link_to 'ブログを削除する', blog_path(blog.id), method: :delete, data: { confirm: '本当削除していいですか？' } % >
+<% end % >
 
-<!--%= link_to "ブログを作成する", new_blog_path %>-->
-<!--ここまで-->
+<%= link_to "ブログを作成する", new_blog_path % >
+ここまで
+%>
 
 <div class="container">
   <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
@@ -25,21 +30,27 @@
 
     <% @blogs.each do |blog| %>
       <div class="row">
-        <!--# DIVE15_コメント機能 で編集　-->
-        <!--# ブログのタイトルにlink_toでリンクを設定-->
-        <!--# profile・登録者情報は表示させない-->
+
+        <%# DIVE15_コメント機能 で編集 %>
+        <%# ブログのタイトルにlink_toでリンクを設定 %>
+        <%# profile・登録者情報は表示させない %>
+        <%#
+        <%= blog.user_id % >
+        <%= blog.user_name % ></p>
+        %>
         <%= link_to blog_path(blog) do %>
           <h4><strong><%= blog.title %></strong></h4>
         <% end %>
-        <!--dive14_SNSログイン で編集　課題提出-->
-        <!--<%= profile_img(blog.user) %>-->
-        <!--<h4><strong><%= blog.title %></strong></h4>-->
+
+        <%# dive14_SNSログイン で編集　課題提出 %>
+        <%# 投稿者のプロフィール画像を表示させる %>
+        <%#
+        <%= profile_img(blog.user) % >
+        <h4><strong><%= blog.title % ></strong></h4>-->
+        %>
         <p><%= blog.content %></p>
-        <p style="text-align:right;">
-        <!--  登録者 -->
-        <!--<%= blog.user_id %> -->
-        <!--<%= blog.user_name %></p>-->
         
+        <p style="text-align:right;">
         <%= link_to "編集", edit_blog_path(blog.id), class: 'btn btn-default btn-sm btn-success' %>
         <%= link_to "削除", blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
       </div>

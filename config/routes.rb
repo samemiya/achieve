@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'relationships/create'
+
+  get 'relationships/destroy'
+
+  # DIVE16_フォロー機能 で編集
+  # rails g コマンドで作成されるが不要なので削除する
+  # get 'users/index'
+
   # DIVE15_コメント機能 で編集　
   # rails g コマンドで作成されるが不要なので削除する
   # get 'comments/create'
@@ -11,23 +19,48 @@ Rails.application.routes.draw do
   # get 'blogs' => 'blogs#index' 
   # get 'top/index'
    
-# DIVE15_コメント機能 で編集　
-# resourcesの書き方を変える為に下記は削除
-#   resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
-#     collection do
-#       post :confirm
-#     end
-    
-#     # member do
-#     #   post :confirm
-#     # end
-#   end
+  # DIVE15_コメント機能 で編集　
+  # resourcesの書き方を変える為に下記は削除
+  #   resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
+  #     collection do
+  #       post :confirm
+  #     end
+      
+  #     # member do
+  #     #   post :confirm
+  #     # end
+  #   end
 
-# DIVE15_コメント機能 で編集　新たに書き換えたもの
+  # DIVE15_コメント機能 で編集
+  # 新たに書き換えたもの
   resources :blogs do
     resources :comments
     post :confirm, on: :collection
   end
+
+  # DIVE14_API基礎編２ で編集
+  # APIの演習
+  # 課題でshow,editを追加
+  resources :poems, only: [:index, :show, :edit] #この行を追記する
+  
+  # DIVE14_SNSログイン で編集
+  # ルーティング定義の追加
+  # 新規登録する際に、継承したregistration_controllerが
+  # 使用されるようにする
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
+
+  # DIVE16_フォロー機能 で編集
+  # ユーザー一覧ページを作成する
+  # devise_for より下に記述する必要がある
+  # 課題でshow,editを追加
+  resources :users, only: [:index, :show]
+
+  # DIVE16_フォロー機能 で編集
+  # follow機能を実装する
+  resources :relationships, only: [:create, :destroy]
 
   # get 'contacts/index'
   # resources :contacts, only: [:index, :new, :create]
@@ -46,19 +79,6 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
-
-  # DIVE14_API基礎編２ で編集
-  # APIの演習
-  # 課題でshow,editを追加
-  resources :poems, only: [:index,:show,:edit] #この行を追記する
-  
-  # DIVE14_SNSログイン で編集
-  # 新規登録する際に、継承したregistration_controllerが
-  # 使用されるようにする
-  devise_for :users, controllers: {
-    registrations: "users/registrations",
-    omniauth_callbacks: "users/omniauth_callbacks"
-  }
 
 end
   

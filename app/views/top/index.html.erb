@@ -1,16 +1,18 @@
-<!--<header>-->
-<!--    <ul>-->
-<!--        <li><a href="#">Achieve</a></li>-->
-<!--        <li><a href="#">トップページ</a></li>-->
-<!--        <li><a href="#">お問い合わせ</a></li>-->
-<!--        <li><a href="#">ブログ index.html.erbのheader</a></li>-->
-<!--    </ul>-->
-<!--</header>-->
-<!-- <p><%= notice %></p> -->
+<%#
+<header>
+    <ul>
+        <li><a href="#">Achieve</a></li>
+        <li><a href="#">トップページ</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+        <li><a href="#">ブログ index.html.erbのheader</a></li>
+    </ul>
+</header>
+<p><%= notice % ></p> 
+%>
 
 <section class="main-header">
-    <!--<img src="images-master/achieve.png">-->
-    <!--<img src="images/achieve.png">-->
+    <%# <img src="images-master/achieve.png"> %>
+    <%# <img src="images/achieve.png"> %>
     <p class="flash"><%= notice %><%= alert %></p>
     <img src="<%=asset_path "achieve.png"%>">
 </section>
@@ -27,36 +29,36 @@
     </p>
 </section>
 
-<!--<section class="function">-->
+<%# <section class="function"> %>
 <section class="function container-fluid">
     <div class="row">
-    <!--<h1>Function</h1>-->
+    <%# <h1>Function</h1> %>
     <h2>Function</h2>
         <div class="function-images">
             <div class="col-md-3 col-sm-6">
                 <div class="function-image">
-                    <!--<img src="images-master/key.png">-->
+                    <%# <img src="images-master/key.png"> %>
                     <img src="<%=asset_path "key.png"%>">
                     <p>ログイン機能</p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="function-image">
-                    <!--<img src="images-master/mails.png">-->
+                    <%# <img src="images-master/mails.png"> %>
                     <img src="<%=asset_path "mails.png"%>">
                     <p>メール送信機能</p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="function-image">
-                    <!--<img src="images-master/girls.png">-->
+                    <%# <img src="images-master/girls.png"> %>
                     <img src="<%=asset_path "girls.png"%>">
                     <p>友達つながり機能</p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="function-image">
-                    <!--<img src="images-master/comment.png">-->
+                    <%# <img src="images-master/comment.png"> %>
                     <img src="<%=asset_path "comment.png"%>">
                     <p>コメント投稿機能</p>
                 </div>
@@ -68,7 +70,9 @@
     </div>
 </section>  
 
-<!--<footer>-->
-<!--    <p>運営会社DIVE INTO CODE株式会社</p>-->
-<!--    <p>© 2015-2016 Copyright DIVE INTO CODE Corp. index.html.erbのfooter</p>-->
-<!--</footer>-->
+<%#
+<footer>
+    <p>運営会社DIVE INTO CODE株式会社</p>
+    <p>© 2015-2016 Copyright DIVE INTO CODE Corp. index.html.erbのfooter</p>
+</footer>
+%>

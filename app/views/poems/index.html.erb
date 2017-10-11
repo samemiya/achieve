@@ -1,12 +1,12 @@
-<!-- DIVE14_API基礎編２で編集 -->
-<!-- APIの演習 -->
-<!--<h1>DIVE14_API基礎編２#API</h1>-->
-<!--<p>Find me in api/views/contacts/index.html.erb</p>-->
-
-<!--<% @poems.each do |poem| %>-->
-<!--  <%= poem.title %>-->
-<!--  <%= poem.content %>-->
-<!--<% end %>-->
+<%# DIVE14_API基礎編２で編集 %>
+<%# 
+APIの演習
+<h1>DIVE14_API基礎編２#API</h1>
+<p>Find me in api/views/contacts/index.html.erb</p>
+<% @poems.each do |poem| % >
+  <%= poem.title % >
+  <%= poem.content % >
+<% end %>
 
 <div class="container">
   <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
@@ -14,17 +14,17 @@
     <p><%= notice %></p>
 
     <h1>ポエム一覧</h1>
-       <!--<%= link_to "ポエムを作成する", new_blog_path, class: 'btn btndefault' %>-->
+       <%# = link_to "ポエムを作成する", new_blog_path, class: 'btn btndefault' %>
       
     <% @poems.each do |poem| %>
       <div class="row">
         <h4><strong><%= poem.title %></strong></h4>
         <p><%= poem.content %></p>
-        <!--<p style="text-align:right;">-->
-        <!--  登録者 -->
-          <!--<%= poem.title %> -->
-        <!--  <%= poem.title %></p>-->
-
+        <%# <p style="text-align:right;">
+        登録者
+          <%= poem.title % > 
+          <%= poem.title % ></p>
+        %>
         <p style="text-align:right;">
           <%= link_to "詳細", poem, :class => 'btn btn-default' %>
         </p>

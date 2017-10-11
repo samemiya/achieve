@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   # DIVE15_コメント機能 で編集　
-  # onlyにshowアクションを追加します。
+  # onlyにshowアクションを追加
   before_action :authenticate_user!
   before_action :set_blog, only: [:show, :edit, :update, :destroy]  
   
@@ -17,7 +17,8 @@ class BlogsController < ApplicationController
   end
 
   # DIVE15_コメント機能 で編集　
-  # showアククションを定義します。入力フォームと一覧を表示するためインスタンスを2つ生成します。
+  # showアククションを定義
+  # 入力フォームと一覧を表示するためインスタンスを2つ生成
   def show
     @comment = @blog.comments.build
     @comments = @blog.comments

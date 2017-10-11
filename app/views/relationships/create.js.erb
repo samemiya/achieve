@@ -1,0 +1,3 @@
+<%# DIVE16_フォロー機能 で編集 %>
+<%# follow機能とAjaxの実装 %>
+$("#follow_form_"+"<%= @user.id %>").html("<%= escape_javascript(render partial: 'users/follow_form', locals: { user: @user } ) %>")

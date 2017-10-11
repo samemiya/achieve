@@ -1,0 +1,21 @@
+<%# DIVE16_フォロー機能 で編集 %>
+<%#
+rails g で作成された初期状態を下記のように変更する
+<h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+%>
+
+<div class="container">
+  <h2>ユーザー一覧</h2>
+  <% @users.each do |user| %>
+    <div class="container-child col-md-2 col-sm-4 col-xs-6">
+      <%= profile_img(user) %>
+      <%= link_to users_path(user) do %>
+        <% user.email %>
+      <% end %>
+      <br><br>
+      <%= render 'follow_form', user: user %>
+    </div>
+  <% end %>
+</div>
+

@@ -20,24 +20,28 @@
   </div>
 </div>
 
-<!--Bootstrapを適用する前までのコード　ここから-->
-<!--h3>以下の内容で、送信する。</h3>-->
+<%# Bootstrapを適用する前までのコード %>
+<%# ここから
+<h3>以下の内容で、送信する。</h3>
 
-<!--%= form_for(@blog) do |f| %>-->
-  <!-- `f.hidden_field`を使用して、リクエストパラメータに値を設定できるようにしています。 -->
-<!--  %= f.hidden_field :title %>-->
-<!--  %= f.hidden_field :content %>-->
+<%= form_for(@blog) do |f| % >
+   `f.hidden_field`を使用して、リクエストパラメータに値を設定できるようにしています。 
+<%= f.hidden_field :title % >
+<%= f.hidden_field :content % >
+%>
+<%#
+@blog.titleと@blog.contentとすることで、表示用の値を画面に出力しています。 
+<p>タイトル:%= @blog.title % ></p>
+ %>
+<%#
+<p>本文: %= @blog.content % ></p>
+<%= f.submit "登録する" % >
+<% end % >
 
-  <!-- @blog.titleと@blog.contentとすることで、表示用の値を画面に出力しています。 -->
-<!--  p>タイトル:%= @blog.title %></p>-->
-<!--  p>本文:%= @blog.content %></p>-->
-<!--  %= f.submit "登録する" %>-->
-<!--% end %>-->
-
-<!-- %= link_to '戻る', :back %>-->
-<!--%= form_for(@blog, url: new_blog_path, method: 'get') do |f| %>-->
-<!--  %= f.hidden_field :title %>-->
-<!--  %= f.hidden_field :content %>-->
-<!--  %= f.submit "もどる",name:'back' %>-->
-<!--% end %>-->
-<!--ここまで-->
+<%= link_to '戻る', :back % >
+<%= form_for(@blog, url: new_blog_path, method: 'get') do |f| % >
+<%= f.hidden_field :title % >
+<%= f.hidden_field :content % >
+<%= f.submit "もどる",name:'back' % >
+<% end % >
+ここまで %>

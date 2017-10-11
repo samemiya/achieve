@@ -1,6 +1,6 @@
 <div class="container">
   <div class="wrapper col-md-4 col-md-offset-4 col-sm-10">
-<!--<h2>Sign up</h2>-->
+<%# <h2>Sign up</h2> %>
     <h2>サインアップ</h2>
     
     <%= alert %>
@@ -9,12 +9,12 @@
       <%= devise_error_messages! %>
     
       <div class="field">
-        <!--<%= f.label :email %>-->
+        <%# <%= f.label :email % > %>
         <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス"  %>
         <br />
       </div>
     
-      <!-- 名前入力用のフィールドを追加 -->
+      <%# 名前入力用のフィールドを追加 %>
       <div class="field">
         <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
         <br/>

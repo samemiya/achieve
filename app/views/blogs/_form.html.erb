@@ -13,14 +13,15 @@
       <% end %>
       </ul>
     </div>
+  <% end %>
+
+  <%= f.label :タイトル %>
+  <%= f.text_field :title, class:'form-control' %>
+  <br>
+  <%= f.label :内容 %>
+  <%= f.text_field :content, class:'form-control' %>
+  <br>
+  <%= f.submit '投稿', class:'btn btn-primary btn-block' %>
+
 <% end %>
-
-<%= f.label :タイトル %>
-<%= f.text_field :title, class:'form-control' %>
-<br>
-<%= f.label :内容 %>
-<%= f.text_field :content, class:'form-control' %>
-<br>
-<%= f.submit '投稿', class:'btn btn-primary btn-block' %>
-
-<!--<% end %>-->
+ 
