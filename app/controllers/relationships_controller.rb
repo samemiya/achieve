@@ -25,10 +25,10 @@ class RelationshipsController < ApplicationController
     respond_with @user
   end
 
-  def edit
-    @user = User.find(params[:relationship][:followed_id])
-    current_user.follow!(@user)
-    respond_with @user
-  end
+  # def edit
+  #   @user = User.find(params[:relationship][:followed_id])
+  #   current_user.follow!(@user)
+  #   respond_with @user
+  # end
 
 end

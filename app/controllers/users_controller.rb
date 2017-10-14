@@ -10,5 +10,6 @@ class UsersController < ApplicationController
   def show
     # @user = @user.comments.build
     @user = User.find(params[:id])
+    # @user = User.all   dame
   end
 end
