@@ -77,7 +77,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-    # DIVE11_メール送信　で編集
+    # DIVE11_メール送信 で編集
+    # 【本番環境】SendGrid（メールサーバ）の初期設定
     config.action_mailer.default_url_options = { host: 'warm-lowlands-91711' }
     ActionMailer::Base.delivery_method = :smtp
     ActionMailer::Base.smtp_settings =

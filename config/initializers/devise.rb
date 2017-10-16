@@ -12,6 +12,10 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
+  
+  # DIVE11_メール送信 で編集
+  # メールの from を noreply@yourdomain に設定
+  # 実際は、自分や会社のアドレスにする
   config.mailer_sender = 'noreply@yourdomain'
 
   # Configure the class responsible to send e-mails.

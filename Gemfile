@@ -41,48 +41,53 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  # DIVE13_デバック：エラーページで編集
+  # DIVE13_デバック：エラーページ で編集
   # デバッグ用のgem
   gem 'pry-rails'
   gem 'better_errors'
 
 end
 
+# DIVE04_Bootstrap で編集
+# Bootstrap用のgem
+gem 'twitter-bootstrap-rails'
+
 # DIVE07_Heroku で編集
 # Heroku上でのエラーをコンソールに出力させるgem
 gem 'rails_12factor', group: :production
 
-gem 'twitter-bootstrap-rails'
-
+# DIVE08_ログイン機能 で編集
+# ログイン機能用のgem
 gem 'devise'
 
 gem 'jquery-turbolinks'
 
 gem 'faker'
 
-# DIVE11_メール送信で編集
-# メールボックスを開かずにブラウザでメール送信内容を確認することができるgem
-# アプリのURLに続けて『/letter_opener』を入力
+# DIVE11_メール送信 で編集
+# メールボックスを開かずにブラウザで
+# メール送信内容を確認することができるgem
+# 確認方法：アプリのURLに続けて『/letter_opener』を入力
 group :development do
   gem 'letter_opener_web'
   
-  # DIVE14_SNSログインで編集
+  # DIVE14_SNSログイン で編集
   gem 'dotenv-rails'
 end
 
-# DIVE12_管理画面で編集
+# DIVE12_管理画面 で編集
 # 管理画面用のgem
 gem 'rails_admin'
 
-# DIVE12_管理画面で編集
+# DIVE12_管理画面 で編集
 # adminカラムがtrueの場合のみ管理画面にアクセスできるgem
 gem 'cancan'
 
-# DIVE14_API基礎編２で編集
+# DIVE14_API基礎編２ で編集
 # API用のgem
 gem 'activeresource' #この行を追記する
 
-# DIVE14_SNSログインで編集
+# DIVE14_SNSログイン で編集
 # oauthのgem
 gem 'omniauth'
 gem 'omniauth-twitter'

@@ -21,7 +21,7 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
-  # DIVE11_メール送信　で編集
+  # DIVE11_メール送信 で編集
   # cloud9を使っている場合、localhostではなく、
   # 自分のcloud9アプリのURLにする必要がある
   # config.action_mailer.default_url_options = { host: 'localhost:3000' }

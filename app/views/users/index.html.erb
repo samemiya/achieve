@@ -10,16 +10,22 @@ rails g で作成された初期状態を下記のように変更する
   <% @users.each do |user| %>
     <div class="container-child col-md-2 col-sm-4 col-xs-6">
       <%= profile_img(user) %>
+      
       <%#
       失敗、というか、ずーーーと悩んでいた部分
       <%= link_to users_path(user) do % >
       <% user.email % >
       <% end % >
       %>
-      <%= link_to user.name, user %><br>
-      <%= user.email %><br>
-      <br>
-      <%= render 'follow_form', user: user %>
+
+      <%= link_to user.name, user %><br />
+      <%= user.email %><br />
+      <br />
+      <% if current_user.id != user.id %>
+        <%= render 'follow_form', user: user %>
+        <br />
+      <% end %>
+
     </div>
   <% end %>
 </div>

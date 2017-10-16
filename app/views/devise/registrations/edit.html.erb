@@ -8,8 +8,8 @@
       <%= devise_error_messages! %>
     
       <div class="field">
-        <!--<%= f.label :email %><br />-->
-        <!--<%= f.email_field :email, autofocus: true %>-->
+        <%# = f.label :email % ><br> %>
+        <%# = f.email_field :email, autofocus: true %>
         <%= f.label :メールアドレス %>
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
       </div><br>
@@ -31,7 +31,7 @@
 
         <%# DIVE14_SNSログイン で編集 %>
         <div class="field">
-          <%= f.label :現在のパスワード %><br />
+          <%= f.label :現在のパスワード %><br>
           <%# <i>(we need your current password to confirm your changes)</i><br> %>
           <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
         </div><br>
@@ -41,7 +41,7 @@
           <i>変更したくない場合は空白のまま</i><br>
           <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
           <% if @minimum_password_length %><br>
-            <em><%= @minimum_password_length %> 桁以上必須 </em>
+            <em><%= @minimum_password_length %> 桁以上必須</em>
           <% end %>
         </div><br>
     

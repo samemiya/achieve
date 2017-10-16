@@ -1,7 +1,8 @@
 <div class="container">
   <div class="wrapper col-md-4 col-md-offset-4 col-sm-10">
-<%# <h2>Sign up</h2> %>
+    
     <h2>サインアップ</h2>
+    <%# <h2>Sign up</h2> %>
     
     <%= alert %>
 
@@ -9,35 +10,35 @@
       <%= devise_error_messages! %>
     
       <div class="field">
-        <%# <%= f.label :email % > %>
         <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス"  %>
-        <br />
+        <br>
+        <%# = f.label :email %>
       </div>
     
       <%# 名前入力用のフィールドを追加 %>
       <div class="field">
         <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
-        <br/>
+        <br>
       </div>
     
       <div class="field">
-        <!--<%= f.label :password %>-->
-        <!--<% if @minimum_password_length %>-->
-        <!--<em>(<%= @minimum_password_length %> characters minimum)</em>-->
-        <!--<% end %>-->
-        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード（確認）"  %>
-        <br />
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード"  %>
+        <br>
+        <%# = f.label :password %>
+        <%# if @minimum_password_length %>
+        <%# <em>(<% = @minimum_password_length % > characters minimum)</em> %>
+        <%# end %>
       </div>
     
       <div class="field">
-        <!--<%= f.label :password_confirmation %>-->
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "パスワード（確認）" %>
-        <br />
+        <br>
+        <%# = f.label :password_confirmation %>
       </div>
     
       <div class="actions">
-        <!--<%= f.submit "Sign up" %>-->
         <%= f.submit "サインアップ", class: "btn btn-primary btn-block" %>
+        <%# = f.submit "Sign up" %>
       </div>
     <% end %>
 

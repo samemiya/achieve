@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   # PERMISSIBLE_ATTRIBUTES = %i(name)
 
   # DIVE14_SNSログイン で編集
-  # 画像をULする為の編集
+  # ユーザー編集ページで画像をULする
   PERMISSIBLE_ATTRIBUTES = %i(name avatar avatar_cache)
    
   protected
