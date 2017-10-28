@@ -19,11 +19,22 @@ rails g で作成された初期状態を下記のように変更する
       %>
 
       <%= link_to user.name, user %><br />
-      <%= user.email %><br />
-      <br />
       <% if current_user.id != user.id %>
-        <%= render 'follow_form', user: user %>
+        <%= user.email %><br />
+        <%# DIVE19_1_メッセージ機能 で編集 %>
+        <%# 次の１ラインを下記のように変更 %>
+        <%# = render 'follow_form', user: user %>
+        <%# <li> %>
+          <div class="item">
+            <%# <%= link_to user.name, user %>
+            <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+          </div>
+          <br />
+          <%= render partial: 'follow_form', locals: { user: user } if signed_in? %>
+        <%# </li> %>
         <br />
+      <% else %>
+        <div class="item">　</div>
       <% end %>
 
     </div>

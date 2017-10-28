@@ -6,6 +6,51 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <%# DIVE19_2_通知機能 で編集 %>
+  <%# 通知を受け取るための記述を行う %>
+  <%# 次のscript文2つを追加 %>
+  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+  <%# ログインしている時のみ表示されるようにする %>
+  <% if user_signed_in? %>
+    <script>
+      var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>',{
+        encrypted: true,
+        cluster: 'ap1'      
+      });
+
+    <%# 自分の通知だけを受け取るようにする %>
+    <%# 下の記述だと、すべての通知を受け取ってしまう%>
+    <%# 次のように変更する %>
+    var channel = pusher.subscribe("user_<%= current_user.id %>_channel");
+    channel.bind('comment_created', function(data) {alert(data.message);
+    });
+    <%#
+    var channel = pusher.subscribe('test_channel');
+    channel.bind('comment_created', function(data) {
+      alert(data.message);
+    });
+    %>
+    # DIVE19_2_通知機能 で編集 
+    # 通知を受け取り、通知件数を更新させる
+    channel.bind('notification_created', function(data) {$'#unread_count').html(data.unread_counts);
+      });
+    
+    </script>
+    <%# DIVE19_2_通知機能 で編集 %>  
+    <%# ヘッダに通知の未読件数を表示させる %>
+    <%# ログインしている場合のみ表示させる %>    
+    <%#
+    <%= link_to notifications_index_path do % >
+      <i class="fa fa-bell fa-1x"><%= @notifications_count % ></i>
+    <% end % >
+    %>
+    <%# DIVE19_2_通知機能 で編集 %>  
+    <%# 新しい通知件数をJavaScriptで書き換える %>
+    <%= link_to notifications_index_path, class: "navbar-brand" do %>
+      <i class="fa fa-bell fa-1x"><span id="unread_count"><%= @notifications_count %></span></i>
+    <% end %>    
+  <% end %>
 </head>
 
 <body>
@@ -50,6 +95,8 @@ headerの中でドロップダウン機能を使えるようにする
               <li><%= link_to "ポエム", poems_path %></li>
               <%# DIVE16_フォロー機能 で編集　メニューに追加 %>
               <li><%= link_to 'ユーザー一覧', users_path if user_signed_in? %></li>
+              <%# DIVE19_1_メッセージ機能 で編集　メニューに追加 %>
+              <li><%= link_to "メッセージ", conversations_path %></li>
             </ul>
           </li>
           <% if user_signed_in? %>

@@ -22,6 +22,10 @@ class BlogsController < ApplicationController
   def show
     @comment = @blog.comments.build
     @comments = @blog.comments
+    # DIVE19_2_通知機能 で編集  
+    # 通知クリックで、通知を既読にする
+    # 下記を追加
+    Notification.find(params[:notification_id]).update(read: true) if params[:notification_id]
   end
   
   def new
@@ -34,14 +38,16 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blogs_params)
+    # DIVE09_アソシエーション で編集
+    # user_idを代入する
     @blog.user_id = current_user.id
     @blog.user_name = current_user.name
     if @blog.save
-      # 一覧画面へ遷移して"ブログを作成しました！"とメッセージを表示します。
+      # 一覧画面へ遷移して"ブログを作成しました！"とメッセージを表示する
       redirect_to blogs_path, notice: "ブログを作成しました！"    
       NoticeMailer.sendmail_blog(@blog).deliver
     else
-      # 入力フォームを再描画します。
+      # 入力フォームを再描画する
       render 'new' 
     end
 
@@ -81,13 +87,13 @@ class BlogsController < ApplicationController
   end
 
   private
-      def blogs_params
-        params.require(:blog).permit(:title, :content)
-      end
+    def blogs_params
+      params.require(:blog).permit(:title, :content)
+    end
 
-      # idをキーとして値を取得するメソッド
-      def set_blog
-        @blog = Blog.find(params[:id])
-      end
+    # idをキーとして値を取得するメソッド
+    def set_blog
+      @blog = Blog.find(params[:id])
+    end
 
 end

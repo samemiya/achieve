@@ -1,21 +1,30 @@
 Rails.application.routes.draw do
 
+  get 'notifications/index'
+
+  get 'messages/index'
+
+  get 'messages/create'
+
   get 'relationships/create'
-
   get 'relationships/destroy'
-
-  # DIVE16_フォロー機能 で編集
-  # rails g コマンドで作成されるが不要なので削除する
-  # get 'users/index'
 
   # DIVE15_コメント機能 で編集　
   # rails g コマンドで作成されるが不要なので削除する
   # get 'comments/create'
 
+  # DIVE16_フォロー機能 で編集
+  # rails g コマンドで作成されるが不要なので削除する
+  # get 'users/index'
+
+  # DIVE19_1_メッセージ機能 で編集  
+  # rails g コマンドで作成されるが不要なので削除する
+  # get 'conversations/index'
+  # get 'conversations/create'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   # get 'top/index'
-  
   # get 'blogs' => 'blogs#index' 
   # get 'top/index'
    
@@ -70,7 +79,12 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  
+
+  # DIVE19_1_メッセージ機能 で編集  
+  resources :conversations do
+    resources :messages
+  end  
+
   root 'top#index'
 
   # DIVE11_メール送信 で編集

@@ -11,8 +11,10 @@ class User < ActiveRecord::Base
   # carrierwave用の設定
   mount_uploader :avatar, AvatarUploader #deviseの設定配下に追記
   
-  # DIVE15_コメント機能 で編集　アソシエーションの編集
+  # DIVE09_アソシエーション で編集
+  # 関係性の定義
   # has_many :blogs
+  # DIVE15_コメント機能 で編集
   # 下記のように書き換える
   has_many :blogs, dependent: :destroy
   # CommentモデルのAssociationを設定
