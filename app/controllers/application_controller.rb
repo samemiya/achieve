@@ -9,17 +9,17 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # DIVE19_2_通知機能 で編集 
-  # ヘッダーに未読の通知件数を表示
-  before_action :current_notifications
-
-  def current_notifications
-    @notifications_count = Notification.where(user_id: current_user.id).where(read: false).count
-  end
-
-  # DIVE19_2_通知機能 で編集 
   # ログインしている時だけ current_notifications を起動させる
   before_action :current_notifications, if: :signed_in?
   
+  def current_notifications
+    @notifications_count = Notification.where(user_id: current_user.id).where(read: false).count
+  end
+  
+  # DIVE19_2_通知機能 で編集 
+  # ヘッダーに未読の通知件数を表示
+  before_action :current_notifications
+
   def current_notifications
     @notifications_count = Notification.where(user_id: current_user.id).where(read: false).count
   end

@@ -19,36 +19,35 @@
         cluster: 'ap1'      
       });
 
-    <%# 自分の通知だけを受け取るようにする %>
-    <%# 下の記述だと、すべての通知を受け取ってしまう%>
-    <%# 次のように変更する %>
-    var channel = pusher.subscribe("user_<%= current_user.id %>_channel");
-    channel.bind('comment_created', function(data) {alert(data.message);
-    });
-    <%#
-    var channel = pusher.subscribe('test_channel');
-    channel.bind('comment_created', function(data) {
-      alert(data.message);
-    });
-    %>
-    # DIVE19_2_通知機能 で編集 
-    # 通知を受け取り、通知件数を更新させる
-    channel.bind('notification_created', function(data) {$'#unread_count').html(data.unread_counts);
+      <%# 自分の通知だけを受け取るようにする %>
+      <%# 下の記述だと、すべての通知を受け取ってしまう%>
+      <%# 次のように変更する %>
+      var channel = pusher.subscribe("user_<%= current_user.id %>_channel");
+      channel.bind('comment_created', function(data) {alert(data.message);
       });
-    
+      <%#
+      var channel = pusher.subscribe('test_channel');
+      channel.bind('comment_created', function(data) {
+        alert(data.message);
+      });
+      %>
+      <%# DIVE19_2_通知機能 で編集 %>
+      <%# 通知を受け取り、通知件数を更新させる %>
+      channel.bind('notification_created', function(data) {$'#unread_count').html(data.unread_counts);
+        });
+      
     </script>
     <%# DIVE19_2_通知機能 で編集 %>  
     <%# ヘッダに通知の未読件数を表示させる %>
-    <%# ログインしている場合のみ表示させる %>    
-    <%#
-    <%= link_to notifications_index_path do % >
+    <%# = link_to notifications_index_path do % >
       <i class="fa fa-bell fa-1x"><%= @notifications_count % ></i>
-    <% end % >
-    %>
+    <% end %>
     <%# DIVE19_2_通知機能 で編集 %>  
     <%# 新しい通知件数をJavaScriptで書き換える %>
-    <%= link_to notifications_index_path, class: "navbar-brand" do %>
-      <i class="fa fa-bell fa-1x"><span id="unread_count"><%= @notifications_count %></span></i>
+    <%#
+    ここに書いてはダメ
+    <%= link_to notifications_index_path, class: "navbar-brand" do % >
+      <i class="fa fa-bell fa-1x"><span id="unread_count"><%= @notifications_count % ></span></i>
     <% end %>    
   <% end %>
 </head>
@@ -77,6 +76,16 @@ headerの中でドロップダウン機能を使えるようにする
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <%# DIVE19_2_通知機能 で編集 %>  
+        <%# ヘッダに通知の未読件数を表示させる %>
+        <%# = link_to notifications_index_path do % >
+          <i class="fa fa-bell fa-1x"><%= @notifications_count % ></i>
+        <% end %>
+        <%# DIVE19_2_通知機能 で編集 %>  
+        <%# 新しい通知件数をJavaScriptで書き換える %>
+        <%= link_to notifications_index_path, class: "navbar-brand" do %>
+          <i class="fa fa-bell fa-1x"><span id="unread_count"><%= @notifications_count %></span></i>
+        <% end %>    
         <%= link_to "Achieve", root_path, class: "navbar-brand" %>
       </div>
       <%# Collect the nav links, forms, and other content for toggling %>
