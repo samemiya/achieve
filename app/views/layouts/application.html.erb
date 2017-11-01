@@ -33,8 +33,8 @@
       %>
       <%# DIVE19_2_通知機能 で編集 %>
       <%# 通知を受け取り、通知件数を更新させる %>
-      channel.bind('notification_created', function(data) {$'#unread_count').html(data.unread_counts);
-        });
+      channel.bind('notification_created', function(data) {$('#unread_count').html(data.unread_counts);
+      });
       
     </script>
     <%# DIVE19_2_通知機能 で編集 %>  
