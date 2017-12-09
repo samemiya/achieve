@@ -100,3 +100,7 @@ gem 'mini_magick'
 # DIVE19_2_通知機能 で編集  
 # pusher機能のgem
 gem 'pusher'
+
+# DIVE20_2_AWSデプロイ編 で編集  
+# s3に保存させる為のgem
+gem 'fog'

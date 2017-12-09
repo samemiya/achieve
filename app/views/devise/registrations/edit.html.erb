@@ -22,7 +22,8 @@
       </div><br />
 
       <%# DIVE14_SNSログイン で編集 %>
-      <%# omniauthでサインアップした時のみパスワード欄を非表示にする %>
+      <%# omniauth（Facebook,Twitter）で %>
+      <%# サインアップした時はパスワード欄を非表示にする %>
       <% if @user.provider.blank? %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -54,13 +55,15 @@
 
       <%# DIVE14_SNSログイン で編集 %>
       <%# 画像をULする為の編集 %>
+      <%# ユーザーのアバター画像を編集する部分 %>
+      <%# 何処でボタンを配置しているか分からない？ %>
       <div class="field">
         <%= profile_img(@user) if profile_img(@user) %>
 
-        <p class="sample2">
+        <%# <p class="sample2"> %>
         <%= f.file_field :avatar %>
         <%= f.hidden_field :avatar_cache %>
-        </p>
+        <%# </p> %>
         
       </div>
       <div class="actions">
