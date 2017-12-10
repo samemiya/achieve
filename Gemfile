@@ -11,7 +11,11 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+
+# DIVE20_2_AWSデプロイ編 で編集  
+# capistranoで使うgem
+# コメントを外す
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -46,6 +50,14 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
 
+  # DIVE20_2_AWSデプロイ編 で編集  
+  # capistranoで使うgem
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+
 end
 
 # DIVE04_Bootstrap で編集
@@ -64,15 +76,21 @@ gem 'jquery-turbolinks'
 
 gem 'faker'
 
-# DIVE11_メール送信 で編集
-# メールボックスを開かずにブラウザで
-# メール送信内容を確認することができるgem
-# 確認方法：アプリのURLに続けて『/letter_opener』を入力
 group :development do
+  # DIVE11_メール送信 で編集
+  # メールボックスを開かずにブラウザで
+  # メール送信内容を確認することができるgem
+  # 確認方法：アプリのURLに続けて『/letter_opener』を入力
   gem 'letter_opener_web'
   
   # DIVE14_SNSログイン で編集
   gem 'dotenv-rails'
+
+  # DIVE20_2_AWSデプロイ編 で編集  
+  # 『アプリ公開ディレクトリを作成する』のところ
+  # 全ての環境で読み込まれるようにする為のgem
+  gem 'unicorn'
+
 end
 
 # DIVE12_管理画面 で編集

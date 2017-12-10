@@ -83,7 +83,10 @@ header {
   width: 100%;
   background-size: cover;
 //   background-image: url("images-master/header.jpg");
-  background-image: url("header.jpg");
+// DIVE20_2_AWSデプロイ編 で編集  
+// 本番環境でurlメソッドがうまく機能しないことを避ける為
+// image-url ← url と変更する
+  background-image: image-url("header.jpg");
   background-attachment: fixed;
 }
 
