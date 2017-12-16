@@ -84,14 +84,17 @@ group :development do
   gem 'letter_opener_web'
   
   # DIVE14_SNSログイン で編集
-  gem 'dotenv-rails'
-
-  # DIVE20_2_AWSデプロイ編 で編集  
-  # 『アプリ公開ディレクトリを作成する』のところ
-  # 全ての環境で読み込まれるようにする為のgem
-  gem 'unicorn'
+  # gem 'dotenv-rails'
 
 end
+
+# DIVE20_2_AWSデプロイ編 で編集  
+gem 'dotenv-rails'
+
+# DIVE20_2_AWSデプロイ編 で編集  
+# 『アプリ公開ディレクトリを作成する』のところ
+# 全ての環境で読み込まれるようにする為のgem
+gem 'unicorn'
 
 # DIVE12_管理画面 で編集
 # 管理画面用のgem

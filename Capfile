@@ -1,8 +1,8 @@
 # Load DSL and set up stages
-require "capistrano/setup"
+# require "capistrano/setup"
 
 # Include default deployment tasks
-require "capistrano/deploy"
+# require "capistrano/deploy"
 
 # Include tasks from other gems included in your Gemfile
 #
@@ -25,8 +25,8 @@ require "capistrano/deploy"
 
 # DIVE20_2_AWSデプロイ編 で編集  
 # 下記を追加
-# require 'capistrano/setup'    これは上にある
-# require 'capistrano/deploy'   これは上にある
+require 'capistrano/setup'    # これは上にある
+require 'capistrano/deploy'   # これは上にある
 require 'capistrano/rbenv'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
