@@ -25,8 +25,12 @@
 
 # DIVE20_2_AWSデプロイ編 で編集  
 # 下記を追加
-require 'capistrano/setup'    # これは上にある
-require 'capistrano/deploy'   # これは上にある
+# ↓ これは上にある
+require 'capistrano/setup'
+# ↓ これは上にある
+require 'capistrano/deploy'
+# ↓ 付け足してみる
+require 'capistrano/rails'
 require 'capistrano/rbenv'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'

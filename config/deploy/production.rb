@@ -63,4 +63,8 @@
 # DIVE20_2_AWSデプロイ編 で編集  
 # デプロイ先のサーバ情報・アクセスキー情報を設定
 server '13.113.180.154', user: 'app', roles: %w{app db web}
-set :ssh_options, keys: '/c/Users/ame/.ssh/id_rsa'
+set :ssh_options, keys: '/home/app/.ssh/id_rsa'
+
+# /home/app
+# /c/Users/ame/.ssh/id_rsa
+
