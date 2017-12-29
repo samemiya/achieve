@@ -30,7 +30,7 @@ require 'capistrano/setup'
 # ↓ これは上にある
 require 'capistrano/deploy'
 # ↓ 付け足してみる
-require 'capistrano/rails'
+# require 'capistrano/rails'
 require 'capistrano/rbenv'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
