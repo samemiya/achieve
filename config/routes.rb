@@ -65,6 +65,7 @@ Rails.application.routes.draw do
   # ユーザー一覧ページを作成する
   # devise_for より下に記述する必要がある
   # 課題でshow,editを追加
+  # 試しに行を挿入してみる
   resources :users, only: [:index, :show]
 
   # DIVE16_フォロー機能 で編集
