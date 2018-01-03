@@ -60,13 +60,13 @@
 #     # password: 'please use keys'
 #   }
 
-# DIVE20_2_AWSデプロイ編 で編集  
+# DIVE20_2_AWSデプロイ編 で編集 
 # デプロイ先のサーバ情報・アクセスキー情報を設定
 set :branch, :production
 server '13.113.180.154', user: 'app', roles: %w{app db web}
 set :ssh_options, keys: '/home/ubuntu/.ssh/id_rsa'
 
-# set :ssh_options, keys: '/home/app/.ssh/id_rsa'
+# set :ssh_options, keys: cd .
 
 # /home/app
 # /home/app/.ssh/id_rsa

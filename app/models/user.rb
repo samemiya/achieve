@@ -48,6 +48,7 @@ class User < ActiveRecord::Base
     relationships.find_by(followed_id: other_user.id).destroy
   end
 
+  # DIVE14_SNSログイン で編集
   # find_for_facebook_oauthメソッドの定義
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     
