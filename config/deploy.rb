@@ -106,3 +106,15 @@ namespace :deploy do
     end
   end
 end
+
+# http://nograve.hatenadiary.jp/entry/2015/10/07/161247
+# ここを参考にして下記をセットしてみる
+set :default_env, {
+	rbenv_root: "/usr/local/rbenv",
+	path: "~/.rbenv/shims:~/.rbenv/bin:$PATH",
+	AWS_REGION: ENV['AWS_REGION'],
+	AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+        AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+}
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+set :sidekiq_queue, :carrierwave
